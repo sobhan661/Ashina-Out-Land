@@ -1,16 +1,16 @@
 import sys
 import pygame
+from Setting import Settings
 
 class Game:
     """Overall class to manage game assets and behavior"""
     def __init__(self):
         """Initializes pygame and create game resources"""
         pygame.init()
+        self.setting = Settings()
 
-        self.screen = pygame.display.set_mode((1200, 800))
+        self.screen = pygame.display.set_mode((self.setting.width, self.setting.width))
         pygame.display.set_caption("Ashina Out Land")
-
-        self.bg_color = (230, 230, 230)
 
         self.clock = pygame.time.Clock()
 
@@ -23,7 +23,7 @@ class Game:
                     sys.exit()
 
                 # Re draw screen during each pass in the loop
-                self.screen.fill(self.bg_color)
+                self.screen.fill(self.setting.bg_color)
                 # Make most recently drawn screen visible
                 pygame.display.flip()
                 # Limit game to 60 fps
