@@ -1,6 +1,7 @@
 import sys
 import pygame
 from Setting import Settings
+from Ship import Ship
 
 class Game:
     """Overall class to manage game assets and behavior"""
@@ -32,4 +33,5 @@ class Game:
 if __name__ == "__main__":
     # Make a game instance and run the game
     game = Game()
+    ship = Ship(game)
     game.RunGame()
