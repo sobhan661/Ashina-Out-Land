@@ -10,6 +10,8 @@ class Game:
         self.screen = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption("Ashina Out Land")
 
+        self.bg_color = (230, 230, 230)
+
         self.clock = pygame.time.Clock()
 
     def RunGame(self):
@@ -20,6 +22,8 @@ class Game:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
+                # Re draw screen during each pass in the loop
+                self.screen.fill(self.bg_color)
                 # Make most recently drawn screen visible
                 pygame.display.flip()
                 # Limit game to 60 fps
