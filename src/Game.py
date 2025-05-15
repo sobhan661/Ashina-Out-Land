@@ -9,7 +9,7 @@ class Game:
         pygame.init()
         self.setting = Settings()
 
-        self.screen = pygame.display.set_mode((self.setting.width, self.setting.width))
+        self.screen = pygame.display.set_mode((self.setting.width, self.setting.height))
         pygame.display.set_caption("Ashina Out Land")
 
         self.clock = pygame.time.Clock()
