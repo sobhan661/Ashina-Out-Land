@@ -1,7 +1,7 @@
 import sys
 import pygame
 from Setting import Settings
-from Ship import Ship
+from Ship import ShipGame
 
 class Game:
     """Overall class to manage game assets and behavior"""
@@ -9,9 +9,10 @@ class Game:
         """Initializes pygame and create game resources"""
         pygame.init()
         self.setting = Settings()
-
         self.screen = pygame.display.set_mode((self.setting.width, self.setting.height))
         pygame.display.set_caption("Ashina Out Land")
+
+        self.ship = ShipGame(self)
 
         self.clock = pygame.time.Clock()
 
@@ -23,15 +24,16 @@ class Game:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
-                # Re draw screen during each pass in the loop
-                self.screen.fill(self.setting.bg_color)
-                # Make most recently drawn screen visible
-                pygame.display.flip()
-                # Limit game to 60 fps
-                self.clock.tick(60) 
+            # Re draw screen during each pass in the loop
+            self.screen.fill(self.setting.bg_color)
+            self.ship.blitme()
+
+            # Make most recently drawn screen visible
+            pygame.display.flip()
+            # Limit game to 60 fps
+            self.clock.tick(60) 
                 
 if __name__ == "__main__":
     # Make a game instance and run the game
     game = Game()
-    ship = Ship(game)
     game.RunGame()
