@@ -10,6 +10,8 @@ class Game:
         self.screen = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption("Ashina Out Land")
 
+        self.clock = pygame.time.Clock()
+
     def RunGame(self):
         """Starts main loop for the game"""
         while True:
@@ -20,6 +22,8 @@ class Game:
 
                 # Make most recently drawn screen visible
                 pygame.display.flip()
+                # Limit game to 60 fps
+                self.clock.tick(60) 
                 
 if __name__ == "__main__":
     # Make a game instance and run the game
